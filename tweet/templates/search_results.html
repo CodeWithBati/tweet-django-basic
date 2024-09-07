@@ -1,0 +1,21 @@
+{% extends "layout.html" %} {% block title %} Tweet Project {% endblock %} {%
+block content %}
+<h2>Search Results for "{{ query }}"</h2>
+
+{% block content %}
+{% if results %}
+  {% for tweet in results %}
+    <div class="card" style="width: 18rem">
+    <img src="{{ tweet.photo.url }}" class="card-img-top" alt="tweet image" />
+    <div class="card-body">
+        <h5 class="card-title">{{tweet.user.username}}</h5>
+        <p class="card-text">{{tweet.text}}</p>
+    </div>
+    </div>
+{% endfor %}
+
+{% else %}
+<p>No results found.</p>
+{% endif %} 
+
+{% endblock %}
